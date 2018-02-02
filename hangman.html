@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+  </head>
+  <body>
+<h1> Hangman</h1>
+  
+
+   <script type=text/javascript
+   >
+       //Creating a word bank.
+       var wordBank = ["Commando", "Scarface", "Predator", "Ghostbusters", "Robocop",]
+       
+
+       //Generating a random word from the bank and storing it in variable computerGuess.
+       var computerWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+       var newString = computerWord;
+       
+       console.log(newString); 
+       document.write(newString);
+       var wordLength = computerWord.length;
+
+  
+       
+    
+      //Creating variables to hold wins and guesses and information
+       var wins = 0;
+       var guesses = 7;
+       var remainingLetters = (computerWord.length);
+       var guessedLetters = []
+       var correctGuesses = []
+       
+
+      //creating a variable for the answer
+       var answer=[];
+          for(var i=0; i< wordLength; i++){
+            answer[i]="_";
+          }
+        console.log(answer);
+      document.onkeyup = function(event) {
+         var userGuess = event.key;
+         guessedLetters.push(userGuess); 
+
+         console.log(userGuess);
+
+         if (guesses === 0) {
+        alert("You lose! The movie was " + computerWord + "! Refresh browser to play again.")
+         
+         } else if (remainingLetters === 0){
+           alert("YOU WIN!");
+         } else if (newString.indexOf(userGuess) === -1) { // letter is NOT in the word
+            guessedLetters.push(userGuess);
+            alert("Incorrect");
+            guesses --;
+          } else { 
+               for (var i = 0; i < newString.length; i++) {
+                if (newString[i] === userGuess) {
+               correctGuesses[i] = userGuess;
+                alert("Correct");
+                remainingLetters --;
+    
+
+      }
+    }
+  }
+}
+          
+          
+
+         
+         
+  
+
+
+
+      
+
+  
+            
+ 
+          
+        
+  
+
+        
+        
+          
+           
+        
+
+       
+      
+
+       
+
+
+       
+       
+
+
+       </script>
